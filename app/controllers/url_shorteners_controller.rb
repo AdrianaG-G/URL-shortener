@@ -2,18 +2,40 @@ class UrlShortenersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
+    @url = UrlShortener.new
   end
 
   def create
     @url = UrlShortener.new
     @url.original_url = params[:original_url]
-    if @url.save
-      puts "New URL generated correctly."
-      render 'index'
+
+    if @url.url_not_saved?
+      if @url.save
+        @url.get_title_url
+        flash[:success] = "URL shortened correctly."
+        redirect_to show_short_url_path(@url.short_url)
+      else
+        flash.now[:error] = "Sorry, the URL could not be generated."
+        render 'index'
+      end
     else
-      puts "Sorry, we had problems generating the URL. Try again."
-      render 'index'
+      get_original_url = UrlShortener.find_by_original_url(params[:original_url])
+      redirect_to show_short_url_path(@url.find_duplicate.short_url)
     end
+  end
+
+  def get_original_url
+    url = UrlShortener.find_by_short_url(params[:short_url])
+    redirect_to url.original_url
+  end
+
+  def show_short_url
+    #Returns a \host:\port string for this request
+    host = request.host_with_port
+    
+    @url = UrlShortener.find_by_short_url(params[:short_url])
+    @original_url = @url.original_url
+    @short_url = "#{host}/#{@url.short_url}"
   end
 
 end
