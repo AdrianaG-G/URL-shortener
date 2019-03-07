@@ -21,13 +21,7 @@ class UrlShortener < ApplicationRecord
     def find_duplicate
         UrlShortener.find_by_original_url(self.original_url)
     end
-  
-    def get_title_url
-      url = UrlShortener.find(self.id)
-      url.title = "Test"
-      url.save
-    end
-  
+
     def url_not_saved?
       find_duplicate.nil?
     end

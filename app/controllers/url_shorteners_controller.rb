@@ -12,7 +12,7 @@ class UrlShortenersController < ApplicationController
     #UrlShortener.delete_all
     if @url.url_not_saved?
       if @url.save
-        @url.get_title_url
+        GetTitleJob.perform_later @url.id
         flash[:success] = "URL shortened correctly."
         redirect_to show_short_url_path(@url.short_url)
       else
@@ -44,5 +44,4 @@ class UrlShortenersController < ApplicationController
   def list_top_100
     @urls = UrlShortener.order('visits DESC').limit(100)
   end
-
 end
