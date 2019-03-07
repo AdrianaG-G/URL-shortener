@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <title>URL Shortened</title>
+    <title>URL Shortener</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -9,9 +9,10 @@
     </head>
     <body>
         <div class="container">
-          <h2>URL Shortened</h2>
+          <h2>URL Shortener</h2>
           <label> Original URL: </label>
           <%= link_to @original_url, @original_url, :target => "_blank"%>
+          <br>
           <label> Shortened URL: </label>
           <%= link_to @short_url, controller: "url_shorteners", action: "get_original_url" %>
         </div>

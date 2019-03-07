@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <title>URL Shortened</title>
+    <title>URL Shortener</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -9,13 +9,33 @@
     </head>
     <body>
         <div class="container">
-        <h2>URL Shortened</h2>
+        <h2>URL Shortener</h2>
         <form method="post", action="url_shorteners/create">
             <div class="form-group">
                 <input type="text" class="form-control" id="original_url" placeholder="Enter the URL you want to shorten" name="original_url">
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-default">Shorten</button>
         </form>
+
+        <h2>The 100 Most Visited Websites</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Site</th>
+                    <th>URL</th>
+                    <th>Visits</th>  
+                </tr>
+            </thead>
+            <tbody>
+                <% @urls.each do |url| %>
+                <tr>
+                    <td><%= url.title %></td>
+                    <td><%= url.short_url %></td>
+                    <td><%= url.visits %></td>
+                </tr>
+                <% end %>
+            <tbody>
+        </table>
         </div>
     </body>
 </html>

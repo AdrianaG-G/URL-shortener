@@ -3,12 +3,13 @@ class UrlShortenersController < ApplicationController
 
   def index
     @url = UrlShortener.new
+    list_top_100
   end
 
   def create
     @url = UrlShortener.new
     @url.original_url = params[:original_url]
-
+    #UrlShortener.delete_all
     if @url.url_not_saved?
       if @url.save
         @url.get_title_url
@@ -26,16 +27,22 @@ class UrlShortenersController < ApplicationController
 
   def get_original_url
     url = UrlShortener.find_by_short_url(params[:short_url])
+    #Increment it on each page view
+    url.increment!(:visits)
+
     redirect_to url.original_url
   end
 
   def show_short_url
     #Returns a \host:\port string for this request
     host = request.host_with_port
-    
     @url = UrlShortener.find_by_short_url(params[:short_url])
     @original_url = @url.original_url
     @short_url = "#{host}/#{@url.short_url}"
+  end
+
+  def list_top_100
+    @urls = UrlShortener.order('visits DESC').limit(100)
   end
 
 end
