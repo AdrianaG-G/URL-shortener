@@ -1,5 +1,6 @@
 class UrlShortener < ApplicationRecord
     before_create :generate_new_short_url
+    validates :original_url, presence: true
 
     SHORTEST_LEMGTH = 8
     require 'securerandom'

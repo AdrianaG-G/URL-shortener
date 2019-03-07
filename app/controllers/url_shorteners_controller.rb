@@ -9,7 +9,7 @@ class UrlShortenersController < ApplicationController
   def create
     @url = UrlShortener.new
     @url.original_url = params[:original_url]
-    #UrlShortener.delete_all
+
     if @url.url_not_saved?
       if @url.save
         GetTitleJob.perform_later @url.id

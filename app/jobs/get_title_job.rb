@@ -5,7 +5,6 @@ class GetTitleJob < ApplicationJob
   require 'open-uri'
   
   def perform(url_id)
-    p url_id
     url = UrlShortener.find(url_id)
 
     page = Nokogiri::HTML(open(url.original_url))   
