@@ -24,9 +24,12 @@ A guide to setting up a Ruby on Rails development environment
 - [securerandom](https://ruby-doc.org/stdlib-2.5.0/libdoc/securerandom/rdoc/Random/Formatter.html) - SecureRandom.alphanumeric generates a random alphanumeric string.
 - [nokogiri](https://github.com/sparklemotion/nokogiri) - Nokogiri is an HTML parser.
 
+## Heroku
+[URL Shortener](https://url-shortener-ror.herokuapp.com/)
+
 ## Installing
 ### Clone
-Clone this repo to your local machine using `git`
+Clone this repo to your local machine using `https://github.com/AdrianaG-G/URL-shortener.git`
 > cd URL-shortener
 
 ### Setup
