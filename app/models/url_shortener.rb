@@ -2,7 +2,7 @@ class UrlShortener < ApplicationRecord
     before_create :generate_new_short_url
     validates :original_url, presence: true
 
-    SHORTEST_LEMGTH = 8
+    SHORTEST_LEMGTH = 7
     require 'securerandom'
 
     def generate_new_short_url
