@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2019_03_06_185331) do
 
-  create_table "url_shorteners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "url_shorteners", force: :cascade do |t|
     t.string "short_url"
     t.text "original_url"
     t.datetime "created_at", null: false
