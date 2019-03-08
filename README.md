@@ -14,7 +14,7 @@ URL shortening web page, which provides short aliases for redirection of long UR
 - Ruby 2.5.3
 - [Git](https://github.com/)
 - Rails  5.2.2
-- MySQL
+- [Postgres](https://www.postgresql.org/)
 
 A guide to setting up a Ruby on Rails development environment
 [Install Ruby On Rails on Windows 10](https://gorails.com/setup/windows/10#final-steps)
