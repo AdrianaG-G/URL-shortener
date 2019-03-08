@@ -29,7 +29,6 @@ class UrlShortenersController < ApplicationController
     url = UrlShortener.find_by_short_url(params[:short_url])
     #Increment it on each page view
     url.increment!(:visits)
-
     redirect_to url.original_url
   end
 

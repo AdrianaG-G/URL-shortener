@@ -9,35 +9,35 @@
     </head>
     <body>
         <div class="container">
-        <h2>URL Shortener</h2>
-        <form method="post", action="url_shorteners/create">
-            <div class="form-group">
-                <input type="text" class="form-control" id="original_url" placeholder="Enter the URL you want to shorten" name="original_url" required>
-            </div>
-            <button type="submit" class="btn btn-default">Shorten</button>
-        </form>
+            <h2>URL Shortener</h2>
+            <form method="post", action="url_shorteners/create">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="original_url" placeholder="Enter the URL you want to shorten" name="original_url" required>
+                </div>
+                <button type="submit" class="btn btn-default">Shorten</button>
+            </form>
 
-        <h2>The 100 Most Visited Websites</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Site</th>
-                    <th>URL</th>
-                    <th>Visits</th>  
-                </tr>
-            </thead>
-            <tbody>
-                <% if @urls.present? %>
-                    <% @urls.each do |url| %>
+            <h2>The 100 Most Visited Websites</h2>
+            <table class="table">
+                <thead>
                     <tr>
-                        <td><%= url.title %></td>
-                        <td><%= "#{request.host_with_port}/#{url.short_url}" %></td>
-                        <td><%= url.visits %></td>
+                        <th>Site</th>
+                        <th>URL</th>
+                        <th>Visits</th>  
                     </tr>
+                </thead>
+                <tbody>
+                    <% if @urls.present? %>
+                        <% @urls.each do |url| %>
+                        <tr>
+                            <td><%= url.title %></td>
+                            <td><%= "#{request.host_with_port}/#{url.short_url}" %></td>
+                            <td><%= url.visits %></td>
+                        </tr>
+                        <% end %>
                     <% end %>
-                <% end %>
-            <tbody>
-        </table>
+                <tbody>
+            </table>
         </div>
     </body>
 </html>

@@ -2,12 +2,12 @@ class UrlShortener < ApplicationRecord
     before_create :generate_new_short_url
     validates :original_url, presence: true
 
-    SHORTEST_LEMGTH = 7
+    SHORTEST_LENGTH = 7
     require 'securerandom'
 
     def generate_new_short_url
         #produces random alphanumeric strings
-        new_url = SecureRandom.alphanumeric(SHORTEST_LEMGTH) 
+        new_url = SecureRandom.alphanumeric(SHORTEST_LENGTH) 
 
         #Check short_url doesn't exist in the database.
         url_exist = UrlShortener.find_by_short_url(new_url)
