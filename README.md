@@ -20,12 +20,9 @@ A guide to setting up a Ruby on Rails development environment
 [Install Ruby On Rails on Windows 10](https://gorails.com/setup/windows/10#final-steps)
 
 ## Built With
-- [sidekiq](https://github.com/mperham/sidekiq/wiki/Active+Job)
-Simple, efficient background processing for Ruby.
-- [securerandom](https://ruby-doc.org/stdlib-2.5.0/libdoc/securerandom/rdoc/Random/Formatter.html)
-SecureRandom.alphanumeric generates a random alphanumeric string.
-- [nokogiri](https://github.com/sparklemotion/nokogiri)
-Nokogiri is an HTML parser.
+- [sidekiq](https://github.com/mperham/sidekiq/wiki/Active+Job) - Simple, efficient background processing for Ruby.
+- [securerandom](https://ruby-doc.org/stdlib-2.5.0/libdoc/securerandom/rdoc/Random/Formatter.html) - SecureRandom.alphanumeric generates a random alphanumeric string.
+- [nokogiri](https://github.com/sparklemotion/nokogiri) - Nokogiri is an HTML parser.
 
 ## Installing
 ### Clone
