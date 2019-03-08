@@ -2,7 +2,7 @@
 
 URL shortening web page, which provides short aliases for redirection of long URLs.
 
-###### Challenge Details
+### Challenge Details
 - We must be able to put a URL into the home page and get back a URL of the shortest possible length.
 - We must be redirected to the full URL when we enter the short URL (ex:http://myshortener.whatever/a => https://google.com).
 - There must be an endpoint that returns the top 100 most frequently accessed URLs.
@@ -10,7 +10,7 @@ URL shortening web page, which provides short aliases for redirection of long UR
 - Display the title with the URL on the top 100 board.
 
 
-## The second largest heading
+## Prerequisites
 - Ruby 2.5.3
 - [Git](https://github.com/)
 - Rails  5.2.2
@@ -28,11 +28,11 @@ SecureRandom.alphanumeric generates a random alphanumeric string.
 Nokogiri is an HTML parser.
 
 ## Installing
-###### Clone
+### Clone
 Clone this repo to your local machine using `git`
 > cd URL-shortener
 
-###### Setup
+### Setup
 ```
 $ rake db:migrate
 $ rails s
