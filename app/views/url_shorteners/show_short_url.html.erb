@@ -14,7 +14,7 @@
           <%= link_to @original_url, @original_url, :target => "_blank"%>
           <br>
           <label> Shortened URL: </label>
-          <%= link_to @short_url, controller: "url_shorteners", action: "get_original_url" %>
+          <%= link_to @short_url, controller: "url_shorteners", action: "find_original_url" %>
         </div>
     </body>
 </html>
